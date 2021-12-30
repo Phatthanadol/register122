@@ -46,101 +46,103 @@ class _RegisterpageState extends State<Registerpage> {
       appBar: AppBar(
         title: const Text('Register Page'),
       ),
-      body: Form(
-        key: _formKey,
-        child: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: register(),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Text(
-                'ชั้นปี',
-                style: GoogleFonts.amiko(
-                  fontSize: 18,
+      body: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: register(),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Text(
+                  'ชั้นปี',
+                  style: GoogleFonts.amiko(
+                    fontSize: 18,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Column(
-                children: createRadioYear(),
-              ),
-            ),
-            Text('Year Selected: ${groupYear}'),
-            const SizedBox(
-              height: 16,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Text(
-                'สาขา',
-                style: GoogleFonts.amiko(
-                  fontSize: 18,
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Column(
+                  children: createRadioYear(),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Column(
-                children: createRadioMajor(),
+              Text('Year Selected: ${groupYear}'),
+              const SizedBox(
+                height: 16,
               ),
-            ),
-            Text('Major Selected: ${groupMajor}'),
-            const SizedBox(
-              height: 16,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Text(
-                'คณะ',
-                style: GoogleFonts.amiko(
-                  fontSize: 18,
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Text(
+                  'สาขา',
+                  style: GoogleFonts.amiko(
+                    fontSize: 18,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: DropdownButton(
-                value: _selectedTypeItem,
-                items: _dropdownMenuItem,
-                onChanged: (ListItem? value) {
-                  setState(() {
-                    _selectedTypeItem = value!;
-                  });
-                },
-              ),
-            ),
-            Text('Faculty Selected: ${_selectedTypeItem.name}'),
-            const SizedBox(
-              height: 16,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Text(
-                'สัตว์เลี้ยงที่ชอบ',
-                style: GoogleFonts.amiko(
-                  fontSize: 18,
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Column(
+                  children: createRadioMajor(),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Column(
-                children: createCheckPet(),
+              Text('Major Selected: ${groupMajor}'),
+              const SizedBox(
+                height: 16,
               ),
-            ),
-            Text('Pet Selected: ${checkedPet}'),
-            const SizedBox(
-              height: 16,
-            ),
-            submitbutton(),
-          ],
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Text(
+                  'คณะ',
+                  style: GoogleFonts.amiko(
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: DropdownButton(
+                  value: _selectedTypeItem,
+                  items: _dropdownMenuItem,
+                  onChanged: (ListItem? value) {
+                    setState(() {
+                      _selectedTypeItem = value!;
+                    });
+                  },
+                ),
+              ),
+              Text('Faculty Selected: ${_selectedTypeItem.name}'),
+              const SizedBox(
+                height: 16,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Text(
+                  'สัตว์เลี้ยงที่ชอบ',
+                  style: GoogleFonts.amiko(
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Column(
+                  children: createCheckPet(),
+                ),
+              ),
+              Text('Pet Selected: ${checkedPet}'),
+              const SizedBox(
+                height: 16,
+              ),
+              submitbutton(),
+            ],
+          ),
         ),
       ),
     );
